@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "depgraph"
+version = "0.1.0"
+description = "Python dependency conflict analyzer for monorepos"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Tanmay Singh"},
+]
+keywords = ["dependency", "monorepo", "conflict", "analyzer", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+]
+
+dependencies = [
+    "networkx>=3.1",
+    "click>=8.1",
+    "tomli>=2.0;python_version<'3.11'",
+    "packaging>=23.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]
+
+[project.scripts]
+depgraph = "depgraph.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["depgraph*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "ml-service"
+version = "1.0.0"
+description = "Machine learning prediction service"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "==2.28.0"
+pandas = "==1.5.3"
+scikit-learn = "^1.2.0"
+fastapi = "^0.100.0"
